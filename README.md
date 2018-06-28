@@ -1,38 +1,64 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <pylon/PylonIncludes.h>
 #include <pylon/PylonGUIIncludes.h>
 #include <pylon/gige/BaslerGigEInstantCamera.h>
 #include<pylon/InstantCameraArray.h>
 typedef Pylon::CBaslerGigEInstantCamera Camera_t;
 using namespace Basler_GigECameraParams;
-using namespace Pylon;                                                                                                                          
-using namespace std;
-
-
-// Limits the amount of cameras used for grabbing.
-// It is important to manage the available bandwidth when grabbing with multiple cameras.
-// This applies, for instance, if two GigE cameras are connected to the same network adapter via a switch.
-// To manage the bandwidth, the GevSCPD interpacket delay parameter and the GevSCFTD transmission delay
-// parameter can be set for each GigE camera device.
-// The "Controlling Packet Transmission Timing with the Interpacket and Frame Transmission Delays on Basler GigE Vision Cameras"
-// Application Notes (AW000649xx000)
-// provide more information about this topic.
-// The bandwidth used by a FireWire camera device can be limited by adjusting the packet size.
+using namespace Pylon;                                                                                                                    using namespace std;
 static const size_t c_maxCamerasToUse = 2;
-
 int main(int argc, char* argv[])
 {
 	// The exit code of the sample application.
 	int exitCode = 0;
 	int loopCount = 0;
 	// Before using any pylon methods, the pylon runtime must be initialized. 
+
 	Pylon::PylonAutoInitTerm autoInitTerm;
 	try
 	{
-
-		// Number of images to be grabbed.
-		static const uint32_t c_countOfImagesToGrab = 100;
-		// Get all attached devices and exit application if no device is found.
-		DeviceInfoList_t devices;
+	       // Number of images to be grabbed.
+		 static const uint32_t c_countOfImagesToGrab = 100;
+		  // Get all attached devices and exit application if no device is found.
+		 DeviceInfoList_t devices;
 		CTlFactory& TlFactory = CTlFactory::GetInstance();
 		CBaslerGigEDeviceInfo di, ai;
 		di.SetSerialNumber("22349900");
