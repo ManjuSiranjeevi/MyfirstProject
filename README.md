@@ -1,3 +1,42 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <pylon/PylonIncludes.h>
 #include <pylon/PylonGUIIncludes.h>
 #include <pylon/gige/BaslerGigEInstantCamera.h>
